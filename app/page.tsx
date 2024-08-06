@@ -12,6 +12,12 @@ import BarbershopItem from "./_components/barbershop-item"
 export default async function Home() {
   const barbershops = await db.barbershop.findMany({})
 
+  const popularBarbershop = await db.barbershop.findMany({
+    orderBy: {
+      name: "desc",
+    },
+  })
+
   return (
     <>
       <Header />
@@ -68,7 +74,26 @@ export default async function Home() {
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
+
+        <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
+          Populares
+        </h2>
+        <div className="flex gap-2 overflow-auto [&::-webkit-scrollbar]:hidden">
+          {popularBarbershop.map((barbershop) => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
+
+      <footer>
+        <Card>
+          <CardContent className="px-5 py-6">
+            <p className="text-sm text-gray-400">
+              2024 Copyright <span className="font-bold">Shave Wave</span>
+            </p>
+          </CardContent>
+        </Card>
+      </footer>
     </>
   )
 }

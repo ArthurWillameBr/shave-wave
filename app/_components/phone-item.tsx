@@ -10,7 +10,7 @@ interface PhoneItemProps {
 
 function handleCopyPhone(phone: string) {
   navigator.clipboard.writeText(phone)
-  toast.info("Telefone copiado com sucesso!")
+  toast.success("Telefone copiado com sucesso!")
 }
 
 const PhoneItem = ({ phone }: PhoneItemProps) => {

@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form"
 
 const formSchema = z.object({
-  search: z.string().trim().min(1, {
+  title: z.string().trim().min(1, {
     message: "Digite algo para buscar",
   }),
 })
@@ -21,14 +21,14 @@ const Search = () => {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      search: "",
+      title: "",
     },
   })
 
   const router = useRouter()
 
-  function handleSearch({ search }: FormValues) {
-    router.push(`/barbershops?search=${search}`)
+  function handleSearch({ title }: FormValues) {
+    router.push(`/barbershops?title=${title}`)
   }
 
   return (
@@ -36,7 +36,7 @@ const Search = () => {
       <form onSubmit={form.handleSubmit(handleSearch)} className="flex gap-2">
         <FormField
           control={form.control}
-          name="search"
+          name="title"
           render={({ field }) => (
             <FormItem className="w-full">
               <FormControl>

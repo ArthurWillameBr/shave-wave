@@ -10,6 +10,7 @@ import {
   SheetDescription,
 } from "./ui/sheet"
 import Link from "next/link"
+import Image from "next/image"
 
 const SidebarSheet = () => {
   return (
@@ -51,6 +52,12 @@ const SidebarSheet = () => {
             className="justify-start gap-2"
             variant="ghost"
           >
+            <Image
+              src={option.imageUrl}
+              alt={option.title}
+              width={16}
+              height={16}
+            />
             {option.title}
           </Button>
         ))}

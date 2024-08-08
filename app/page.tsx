@@ -32,7 +32,13 @@ export default async function Home() {
 
         <div className="mt-6 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((item, index) => (
-            <Button key={index} className="gap-2" variant="secondary">
+            <Button key={index} className="shrink-0 gap-2" variant="secondary">
+              <Image
+                src={item.imageUrl}
+                alt={item.title}
+                width={16}
+                height={16}
+              />
               {item.title}
             </Button>
           ))}

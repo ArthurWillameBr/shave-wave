@@ -1,23 +1,17 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
 import { db } from "../_lib/prisma"
 
 interface CreateBookingParams {
-  serviceId: string
   userId: string
+  serviceId: string
   date: Date
 }
 
-export async function createBooking({
-  serviceId,
-  userId,
-  date,
-}: CreateBookingParams) {
+export const createBooking = async (params: CreateBookingParams) => {
   await db.booking.create({
-    data: {
-      serviceId,
-      userId,
-      date,
-    },
+    data: params,
   })
+  revalidatePath("/barbershops/[id]")
 }

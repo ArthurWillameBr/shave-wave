@@ -6,12 +6,15 @@ import { format, isFuture } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet"
 import PhoneItem from "./phone-item"
+import { Button } from "./ui/button"
 
 interface BookingItemProps {
   // Receber o agendamento e o serviço como props, vai incluir o serviço no agendamento.
@@ -32,6 +35,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
   const {
     service: { barbershop },
   } = booking
+
   return (
     <>
       <Sheet>
@@ -140,6 +144,20 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               <PhoneItem phone={phone} key={index} />
             ))}
           </div>
+          <SheetFooter className="mt-6">
+            <div className="flex items-center gap-3">
+              <SheetClose asChild>
+                <Button variant="outline" className="w-full">
+                  Voltar
+                </Button>
+              </SheetClose>
+              {isConfirmed && (
+                <Button variant="destructive" className="w-full">
+                  Cancelar Reserva
+                </Button>
+              )}
+            </div>
+          </SheetFooter>
         </SheetContent>
       </Sheet>
     </>

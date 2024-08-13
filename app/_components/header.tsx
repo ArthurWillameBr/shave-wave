@@ -3,12 +3,15 @@ import { Sheet, SheetTrigger } from "./ui/sheet"
 import { Button } from "./ui/button"
 import { MenuIcon } from "lucide-react"
 import SidebarSheet from "./sidebar-sheet"
+import Link from "next/link"
 
 const Header = () => {
   return (
     <Card>
       <CardContent className="flex items-center justify-between p-5">
-        <h1>Shave Wave</h1>
+        <Link href="/">
+          <h1>Shave Wave</h1>
+        </Link>
 
         <Sheet>
           <SheetTrigger asChild>

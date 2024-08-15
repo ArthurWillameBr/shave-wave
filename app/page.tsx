@@ -9,7 +9,6 @@ import Search from "./_components/search"
 import Link from "next/link"
 import { getServerSession } from "next-auth"
 import { authOptions } from "./_lib/auth"
-import { notFound } from "next/navigation"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 
@@ -17,7 +16,7 @@ export default async function Home() {
   const session = await getServerSession(authOptions)
 
   // fazer popup para login
-  if (!session?.user) return notFound()
+  // if (!session?.user) return notFound()
 
   const barbershops = await db.barbershop.findMany({})
 

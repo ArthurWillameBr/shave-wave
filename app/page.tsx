@@ -97,15 +97,19 @@ export default async function Home() {
             className="rounded-xl object-cover"
           />
         </div>
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
+              Agendamentos
+            </h2>
 
-        <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
-          Agendamentos
-        </h2>
-        <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-          {confirmedBookings.map((booking) => (
-            <BookingItem key={booking.id} booking={booking} />
-          ))}
-        </div>
+            <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map((booking) => (
+                <BookingItem key={booking.id} booking={booking} />
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
           Recomendados

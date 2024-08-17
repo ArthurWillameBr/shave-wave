@@ -12,6 +12,7 @@ import { authOptions } from "./_lib/auth"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import { getConfirmedBookings } from "./_data/get-confirmed-bookings"
+import SectionTitle from "./_components/section-title"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -81,10 +82,7 @@ export default async function Home() {
         </div>
         {confirmedBookings.length > 0 && (
           <>
-            <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
-              Agendamentos
-            </h2>
-
+            <SectionTitle title="agendamentos" />
             <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
               {confirmedBookings.map((booking) => (
                 <BookingItem
@@ -96,18 +94,14 @@ export default async function Home() {
           </>
         )}
 
-        <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
-          Recomendados
-        </h2>
+        <SectionTitle title="recomendados" />
         <div className="flex gap-2 overflow-auto [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
 
-        <h2 className="fond-bold mb-3 mt-6 uppercase text-gray-400">
-          Populares
-        </h2>
+        <SectionTitle title="populares" />
         <div className="flex gap-2 overflow-auto [&::-webkit-scrollbar]:hidden">
           {popularBarbershop.map((barbershop) => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />

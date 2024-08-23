@@ -10,7 +10,9 @@ const Header = () => {
     <Card>
       <CardContent className="flex items-center justify-between p-5">
         <Link href="/">
-          <h1>Shave Wave</h1>
+          <h1 className="text-bold text-xl">
+            Shave <span className="text-primary">Wave</span>
+          </h1>
         </Link>
 
         <Sheet>

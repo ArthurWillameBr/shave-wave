@@ -33,7 +33,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <div className="p-5">
+      <div className="max-w-[1920px] p-5">
         <h1 className="text-xl font-bold">
           Olá, {session?.user ? session?.user.name : "Bem vindo"}
         </h1>
@@ -51,7 +51,7 @@ export default async function Home() {
           <Search />
         </div>
 
-        <div className="mt-6 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+        <div className="mt-6 flex gap-3 overflow-x-auto lg:flex lg:justify-center lg:gap-5 [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
             <Button
               className="gap-2"
@@ -72,14 +72,6 @@ export default async function Home() {
           ))}
         </div>
 
-        <div className="relative mt-6 h-[150px]">
-          <Image
-            alt="banner"
-            src="/banner01.png"
-            fill
-            className="rounded-xl object-cover"
-          />
-        </div>
         {confirmedBookings.length > 0 && (
           <>
             <SectionTitle title="agendamentos" />

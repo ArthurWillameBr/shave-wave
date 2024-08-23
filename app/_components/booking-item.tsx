@@ -147,10 +147,13 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               <PhoneItem phone={phone} key={index} />
             ))}
           </div>
-          <SheetFooter className="mt-6">
+          <SheetFooter className="mt-6 w-full">
             <div className="flex items-center gap-3">
               <SheetClose asChild>
-                <Button variant="outline" className="w-full">
+                <Button
+                  variant="outline"
+                  className="w-full min-w-full max-w-full"
+                >
                   Voltar
                 </Button>
               </SheetClose>
@@ -174,7 +177,10 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                       </DialogHeader>
                       <DialogFooter className="flex flex-row gap-3">
                         <DialogClose asChild>
-                          <Button variant="secondary" className="w-full">
+                          <Button
+                            variant="secondary"
+                            className="w-full min-w-full max-w-full"
+                          >
                             Voltar
                           </Button>
                         </DialogClose>
